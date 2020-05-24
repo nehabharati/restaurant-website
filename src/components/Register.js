@@ -28,7 +28,7 @@ function Register() {
             <div className="flex justify-center font-Nunito"> 
                 <form id="form" className="bg-white mt-32 ml-10 mr-10 rounded shadow-xl relative sm:w-1/2 md:w-1/2 lg:w-1/4" noValidate onSubmit={handleSubmit}>
                     <div className="pl-8 pr-8 pt-8"> 
-                        <label className="" id = 'email'>Email</label>
+                        <label className=""  >Email</label>
                         <input type = 'email' placeholder = 'Email' id = 'email' className=" my-2 border border-blue-700 w-full rounded p-1"/>
                         <small className="hidden -mt-2 text-red-700">Error message</small>
                         <label className="mb-1">Password</label>
