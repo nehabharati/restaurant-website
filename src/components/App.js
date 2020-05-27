@@ -39,10 +39,10 @@ const Home = () => {
     <div className="back"> 
       <div className="redo">
       <div className="text-2xl absolute mt-64 ml-32  md:flex "> 
-        <a href="/register" className="horizontal mx-10">
+        <a href="/register" className="horizontal md:mx-10">
           <span className="text tracking-wider font-semibold">SIGN UP</span>
         </a>  
-        <a href="#" className="horizontal" onClick={handleClick}>
+        <a href="#" className="horizontal mt-5 md:mt-0 md:mx-10" onClick={handleClick}>
           <span className="text tracking-wider font-semibold">OFFER</span>
         </a> 
       </div>
