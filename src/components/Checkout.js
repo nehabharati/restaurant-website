@@ -6,7 +6,7 @@ import { Animated } from "react-animated-css";
 function Checkout(props) {
      const [menu,setMenu] = useState([])  
  
-    function getTotal() { 
+     function getTotal() { 
         let eateries = {}
          for (var key in props.counter) { 
             if (props.counter[key] > 0) {  
@@ -17,21 +17,20 @@ function Checkout(props) {
                          setMenu(() => {
                             menu.push(eateries)
                         }) 
-                                  const ul = document.querySelector('ul')
-                                let btn = document.getElementById("btn")
-                                btn.style.display="none" 
-                                const li = document.createElement('li')
-                                li.style.cssText = "margin-top:10px;font-size:1.25rem"
-                                if(Object.entries(menu[0]).length === 0) {
-                                    li.innerHTML = "You haven't ordered anything. Head back to the menu and place your order!"
-                                }
-                                else {
-                                    li.textContent = Object.entries(menu[0])[Object.entries(menu[0]).length - 1].join(" - ")
-                                    console.log(Object.entries(menu[0]).length - 1)
-                                } 
-                                ul.appendChild(li) 
-                             
-                        }
+                            const ul = document.querySelector('ul')
+                            let btn = document.getElementById("btn") 
+                            btn.style.display="none" 
+                            const li = document.createElement('li')
+                            li.style.cssText = "margin-top:10px;font-size:1.25rem"
+                            if(Object.entries(menu[0]).length === 0) {
+                                li.innerHTML = "You haven't ordered anything. Head back to the menu and place your order!"
+                            }
+                            else {
+                                li.textContent = Object.entries(menu[0])[Object.entries(menu[0]).length - 1].join(" - ")
+                                console.log(Object.entries(menu[0]).length - 1)
+                            } 
+                            ul.appendChild(li)   
+                         }
                     }
                 }
             }
@@ -45,7 +44,7 @@ function Checkout(props) {
                 <Animated animationIn="fadeInDown" animationOut="zoomOutDown" animationInDuration={3000} animationOutDuration={3000} isVisible={true}>
                     <ul className="mt-4 text-blue-500 "> 
                     </ul>
-                </Animated>
+                </Animated> 
             </div>
          </div>
     )

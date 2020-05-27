@@ -80,6 +80,26 @@ let initialState = {
     id: 16,
     dish: "Coconut and Papaya cake", 
     rate: 290 
+  },
+  c18 : { 
+    id: 18,
+    dish: "Chocolate Cheesecake", 
+    rate: 240 
+  },
+  c19 : { 
+    id: 19,
+    dish: "Lemon curd tart", 
+    rate: 180 
+  },
+  c20 : { 
+    id: 20,
+    dish: "Chocolate Pudding", 
+    rate: 160 
+  },
+  c21 : { 
+    id: 21,
+    dish: "Spinach cake", 
+    rate: 200 
   }
 }
 

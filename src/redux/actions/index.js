@@ -23,16 +23,4 @@ export function dishDetails(name) {
         type: DISH,
         payload: { name }
     }
-}
-  
-export function loyal() {
-    return {
-        type: LOYAL 
-    }
-}
-
-export function getStatus() {
-    return {
-        type: STATUS
-    }
-}
+} 

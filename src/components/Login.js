@@ -1,19 +1,23 @@
-import React,{useState} from 'react'
+import React,{ useState, useEffect } from 'react'
 import { connect } from "react-redux";
-import "react-datepicker/dist/react-datepicker.css";
-import { increment } from '../redux/actions'
+ import { increment } from '../redux/actions'
 import { Link } from "react-router-dom";
 import axios from 'axios'
 
 function Login(props) {
     const [email, setEmail] = useState('')
     const [password,setPassword] = useState('') 
+    const [show,setShow] = useState(false)
 
     function handleEmail(e) {
         setEmail(e.target.value)
     } 
     function handlePassword(e) {
         setPassword(e.target.value)
+    } 
+    function signin() {
+        props.increment("c22")
+        window.location="/menu"
     }
  
     function handleSubmit(e){
@@ -33,7 +37,7 @@ function Login(props) {
         } 
         
          const loginInfo = {
-             email,
+            email,
             password
         }
         axios.post("http://localhost:5000/exercises/add" ,loginInfo)
@@ -43,7 +47,7 @@ function Login(props) {
         axios.get("http://localhost:5000/exercises/")
             .then(res => res.data.map(mail => {
                      if (email === mail.email && small.innerText == "Email is correct") {
-                        
+                        setShow(true)
                          let modal = document.getElementById("myModal")
                         var span = document.getElementsByClassName("close")[0];
  
@@ -82,31 +86,27 @@ function Login(props) {
                             <label className="mb-1">
                                 <p className="text-xs">Remember me</p>
                             </label>
-                        </div>
-                        <div className="mt-2">
-                            <a href = '#' className="text-xs">Forgot Password</a>
-                        </div>
+                        </div> 
                     </div>
                         <div id="legend1" className="z-10 w-full">
-                            <button id="reg1"  className="btn1 md:flex md:items-start md:justify-start pb-6 m-auto w-full text-white bg-transparent mt-8 focus:outline-none" type='submit' onClick={() => props.increment("c17")}><span>SIGN IN</span></button>
+                            <button id="reg1"  className="btn1 md:flex md:items-start md:justify-start pb-6 m-auto w-full text-white bg-transparent mt-8 focus:outline-none" type='submit' onClick={() => props.increment("c22")}><span>SIGN IN</span></button>
                         </div>
                     </div>
                  </form>  
 
                 {/* Modal */}
-
-                <div id="myModal" className="modal hidden fixed z-10 pt-10 left-0 top-0 h-screen"> 
-                    <div className="modalAnimate relative bg-white m-auto pb-2 pr-10 pl-10 pt-10 shadow-lg w-1/2 rounded">
+            {show && 
+                <div id="myModal" className="modal hidden fixed z-10 pt-10 left-0 top-0 h-screen px-5"> 
+                    <div className="modalAnimate relative bg-white m-auto pb-2 pr-10 pl-10 pt-10  shadow-lg lg:w-1/2 rounded w-full">
                         <div className="p-2 bg-blue-500 text-white">
                             <span id="close" className="close text-white float-right text-lg font-bold hover:text-gray-800 cursor-pointer">&times;</span>
                             <h2>Restaurant Loyalty Program</h2>
                         </div>
                         <div className="p-2">
-                            <p className="text-gray-900 mt-10 mb-10">This is your second visit to our restaurant. As part of our customer loyalty program, you have a free pass to add any 1 dish on a maximum order of three dishes. Start ordering!!</p>
+                            <p className="text-gray-900 mt-10 mb-10">This is your second visit. You get to choose from our extended menu featuring 4 new desserts. Start ordering!</p>
                         </div>
                         <div className="modal-footer">
-                            {/* <button type="submit" className="bg-blue-500 float-right rounded p-3 mt-8 text-white focus:outline-none" onClick={menuClick}>Click here to avail your offer</button> */}
-                            <div className="buttons flex justify-center items-center mt-6" onClick={() => props.increment("c17")}>
+                             <div className="buttons flex justify-center items-center mt-6" onClick={() => props.increment("c17")}>
                                 <Link to="/menu" className="btn2 btn-1">
                                 <svg>
                                     <rect x="0" y="0" fill="none" width="100%" height="100%"/>
@@ -117,6 +117,7 @@ function Login(props) {
                         </div>
                     </div>
                 </div>
+}
             </div>
         </div>
     )

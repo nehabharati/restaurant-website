@@ -20,7 +20,7 @@ function Navbar() {
                 </div>
                  
                 <div className={`${open ? `block` : `hidden`} px-2 pt-2 pb-5 sm:flex`} >
-                    <a href="/" className="block text-white uppercase hover:bg-gray-800 bg-blue-3 px-2 py-1  rounded sm:hover:border-b-2 sm:hover:border-white">Home</a>
+                    <a href="/" className="block text-white uppercase hover:bg-gray-800 bg-blue-3 px-2 py-1 rounded sm:hover:border-b-2 sm:hover:border-white">Home</a>
                     <a href="/menu" className="block text-white uppercase hover:bg-gray-800 px-2 py-1 mt-1 rounded sm:mt-0 sm:ml-2">Menu</a>
                     <a href="/login" className="block text-white uppercase hover:bg-gray-800 px-2 py-1 mt-1 rounded sm:mt-0 sm:ml-2">Sign In</a>
                     <a href="/register" className="block text-white uppercase hover:bg-gray-800 px-2 py-1 mt-1 rounded sm:mt-0 sm:ml-2">Register</a>     

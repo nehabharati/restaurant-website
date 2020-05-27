@@ -18,7 +18,13 @@ let initialState = {
   c14 : 0,
   c15 : 0,
   c16 : 0,
-  c17: 0
+  c17: 0,       //second visit
+  c18: 0,
+  c19: 0,
+  c20: 0,
+  c21: 0,
+  c22:0,        //first visit
+  c23:0
 }
 
 export default function countReducer(state = initialState , action) {
