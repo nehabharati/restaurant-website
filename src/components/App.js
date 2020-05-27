@@ -40,21 +40,20 @@ const Home = () => {
   return (
     <div className="back"> 
       <div className="redo">
-      <div className="text-2xl absolute mt-64 ml-20">
-         <Link to="/register">
-            <button className="text-gray-900 text-xl bg-white px-4 py-2 mb-2">SIGN UP</button>
-         </Link> 
-         <button className="text-gray-900 text-xl bg-white px-4 py-2 mb-2 mx-16" onClick={handleClick}>OFFER</button> 
+      <div className="text-2xl absolute mt-64 ml-32 md:flex "> 
+        <a href="/register" className="horizontal">
+          <span className="text tracking-wider font-semibold">SIGN UP</span>
+        </a>  
+        <a href="#" className="horizontal" onClick={handleClick}>
+          <span className="text tracking-wider font-semibold">OFFER</span>
+        </a> 
       </div>
       </div>
-      <div id="myModal" className="modal hidden fixed z-50 pt-10 left-0 top-0 h-screen opacity-100"> 
-        <div className="modalAnimate relative bg-white m-auto pb-2 pr-10 pl-10 pt-10 shadow-lg w-1/2 rounded">
-          <div className="p-2 bg-blue-500 text-white">
-              <span id="close" className="close text-white float-right text-lg font-bold hover:text-gray-800 cursor-pointer" onClick={handleShow}>&times;</span>
-              <h2>Restaurant Loyalty Program</h2>
-          </div>
-          <div className="p-2">
-            <p className="text-gray-900 mt-4 mb-10 text-center">Sign in the second time and avail a special offer</p>
+      <div id="myModal" className="modal hidden fixed z-50 pt-10 left-0 top-0 h-screen opacity-100 px-5"> 
+        <div className="modalAnimate relative bg-white m-auto pb-2 pr-10 pl-10 pt-10 shadow-lg w-full sm:w-1/2 rounded">
+             <span id="close" className="close float-right text-lg font-bold hover:text-gray-800 cursor-pointer" onClick={handleShow}>&times;</span>
+           <div className="p-2">
+          <p className="text-gray-900 mt-4 mb-10 text-center">Sign in the second time and avail a special offer</p>
           </div> 
         </div>
       </div>

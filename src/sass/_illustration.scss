@@ -13,7 +13,7 @@
   #reg{
  	height: 50px;
 	text-align: center;
-	width: 250px;
+	width: 200px;
     cursor: pointer;
     position: relative;
     bottom: 10px;
@@ -63,13 +63,16 @@
   #reg1{
  	height: 50px;
 	text-align: center;
-	width: 250px;
+	width: 200px;
     cursor: pointer;
     position: relative;
     bottom: 15px;
    }
 
   .btn1{
+    display: flex;
+    justify-content: center;
+
     transition: all 0.3s;
     position: relative;
     display: flex;
@@ -168,4 +171,59 @@ rect {
   stroke-dashoffset: 48;
   transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
+}
+
+.horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 150px;
+  height: 60px;
+  margin: 20px;
+  border: 5px solid rgba(255, 255, 255, 1);
+  font-size: 1rem;
+  cursor: pointer;
+  
+  > .text {
+    position: relative;
+    color: transparent;
+    background-image: linear-gradient(
+      90deg,
+      #4299E1 0%,
+      #90cdf4 50%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background-repeat: repeat;
+    background-size: 200%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: background-position 300ms;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 1);;
+    transform-origin: 100% 0;
+    transform: scale3d(0, 1, 1);
+    transition: transform 300ms;
+  }
+  
+  &:hover {
+    .text {
+      background-position: 0 0;
+    }
+
+    &::before {
+      transform-origin: 0 0;
+      transform: scale3d(1, 1, 1);
+    }
+  }
 }
