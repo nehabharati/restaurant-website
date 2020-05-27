@@ -27,8 +27,7 @@ function Checkout(props) {
                             }
                             else {
                                 li.textContent = Object.entries(menu[0])[Object.entries(menu[0]).length - 1].join(" - ")
-                                console.log(Object.entries(menu[0]).length - 1)
-                            } 
+                             } 
                             ul.appendChild(li)   
                          }
                     }

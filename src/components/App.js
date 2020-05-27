@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React from 'react';
  import '../css/index.css'
 import Login from './Login' 
 import Menu from './Menu'
@@ -24,9 +24,7 @@ function App() {
 export default App;
 
 
-const Home = () => {
-  const [show,setShow] = useState(false)
-
+const Home = () => {  
   function handleClick() {
     let modal = document.getElementById("myModal")
     modal.style.display="block"
@@ -40,8 +38,8 @@ const Home = () => {
   return (
     <div className="back"> 
       <div className="redo">
-      <div className="text-2xl absolute mt-64 ml-32 md:flex "> 
-        <a href="/register" className="horizontal">
+      <div className="text-2xl absolute mt-64 ml-32  md:flex "> 
+        <a href="/register" className="horizontal mx-10">
           <span className="text tracking-wider font-semibold">SIGN UP</span>
         </a>  
         <a href="#" className="horizontal" onClick={handleClick}>

@@ -5,6 +5,7 @@ import { increment, decrement } from '../redux/actions'
 import {Animated} from "react-animated-css"; 
  
 function Menu(props) {   
+     console.log(props.counter.c22)
     useEffect(() => {
         if(props.counter.c17) {
             let bonus=document.getElementById("bonus")
@@ -16,13 +17,13 @@ function Menu(props) {
             bonus3.style.display="block"
             bonus4.style.display="block"
         }
-        let modal=document.getElementById("myModal")
-        if(props.counter.c17 || props.counter.c22) {
-            modal.style.display = "none"
-        } 
-        else if(props.counter.c17===0 && props.counter.c22===0){
-            modal.style.display = "block"
-        }
+        // let modal=document.getElementById("myModal")
+        // if(props.counter.c17 || props.counter.c22) {
+        //     modal.style.display = "none"
+        // } 
+        // else if(props.counter.c17 === 0 ){
+        //     modal.style.display = "block"
+        // }
     },[])
  
 
