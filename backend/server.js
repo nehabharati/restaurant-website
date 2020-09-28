@@ -11,17 +11,17 @@ app.use(cors())
 app.use(express.json())
 
 const uri = process.env.ATLAS_URI
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true , useCreateIndex: true})
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 
 const connection = mongoose.connection
 connection.once('open', () => {
     console.log("Mongodb connection established")
 })
 
-const exercisesRouter = require("./routes/exercises" )
- 
-app.use('/exercises',exercisesRouter)
- 
+const dishesRouter = require("./routes/dishes")
+
+app.use('/dishes', dishesRouter)
+
 app.listen(port, () => {
     console.log(`Server is listening at ${port}`)
 });
