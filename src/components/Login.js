@@ -7,27 +7,21 @@ import axios from 'axios'
 function Login(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [emailMessage, setEmailMessage] = useState('')
+    const [show, setShow] = useState(false)
 
-    function handleEmail(e) {
-        setEmail(e.target.value)
-    }
-    function handlePassword(e) {
-        setPassword(e.target.value)
-    }
+    const handleEmail = (e) => setEmail(e.target.value)
+    const handlePassword = (e) => setPassword(e.target.value)
+
+
     function handleSubmit(e) {
         e.preventDefault()
-        const form = document.getElementById('form');
-        const mail = document.getElementById('email');
-        const small = form.querySelector('small');
         let reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-        if (reg.test(mail.value) === false) {
-            small.innerText = "Please enter valid email"
-            small.style.display = "block"
+        if (reg.test(email) === false) {
+            setEmailMessage("Please enter valid email")
         }
         else {
-            small.innerText = "Email is correct"
-            small.style.display = "none"
+            setEmailMessage("Email is correct")
         }
 
         const loginInfo = {
@@ -40,32 +34,16 @@ function Login(props) {
 
         axios.get("http://localhost:5000/dishes/")
             .then(res => res.data.map(mail => {
-                if (email === mail.email && small.innerText === "Email is correct") {
-                    let modal = document.getElementById("myModal")
-                    var span = document.getElementsByClassName("close")[0]
-                    modal.style.display = "block"
-
-                    span.onclick = function () {
-                        modal.style.display = "none";
-                        console.log(props.counter.c22)
-                    }
-
-                    window.onclick = function (event) {
-                        if (event.target === modal) {
-                            modal.style.display = "none"
-                        }
-                    }
-                }
-            }
-
-            )
+                if (email === mail.email) { setShow(!show) }
+            })
             )
     }
 
+    console.log(show)
     return (
         <div className="h-screen bg-blue-200 ">
             {/* Modal */}
-            <div id="myModal" className="modal hidden fixed z-10 pt-10 left-0 top-0 h-screen px-5">
+            <div className="modal hidden fixed z-10 pt-10 left-0 top-0 h-screen px-5" style={{ display: show ? "block" : "none" }}>
                 <div className="modalAnimate relative bg-white m-auto pb-2 pr-10 pl-10 pt-10  shadow-lg lg:w-1/2 rounded w-full">
                     <div className="p-2 bg-blue-500 text-white">
                         <span id="close" className="close text-white float-right text-lg font-bold hover:text-gray-800 cursor-pointer">&times;</span>
@@ -87,13 +65,14 @@ function Login(props) {
                 </div>
             </div>
 
+
             {/* Form */}
             <div className="flex justify-center">
                 <form id="form" className="bg-white mt-32 ml-10 mr-10 rounded shadow-xl relative sm:w-1/2 md:w-1/2 lg:w-1/4" noValidate onSubmit={handleSubmit}>
                     <div className="pl-8 pr-8 pt-8">
                         <label className="mb-1">Email</label>
                         <input type='email' id="email" placeholder='Email' className="mt-2 mb-6 border border-blue-700 w-full rounded p-1" value={email} onChange={handleEmail} />
-                        <small className="hidden -mt-4 text-red-700">Error message</small>
+                        {emailMessage ? (<small className="hidden -mt-4 text-red-700">{emailMessage}</small>) : null}
 
                         <label className="mb-1">Password</label>
                         <input type='password' id="password" placeholder='Password' className="my-2 border border-blue-700 w-full rounded p-1" value={password} onChange={handlePassword} />
